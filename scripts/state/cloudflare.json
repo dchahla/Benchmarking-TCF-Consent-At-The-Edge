@@ -1,0 +1,7 @@
+{
+  "worker_name": "consent-filter-cloudflare",
+  "url": "https://consent-filter-cloudflare.consent-filter-cloudflare.workers.dev",
+  "origin_url": "https://consent.gumball.pro",
+  "deployed_at": "2026-07-11",
+  "free_tier_budget": "100k req/day — keep k6 runs modest"
+}

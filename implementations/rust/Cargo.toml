@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+members = [
+    "consent-filter-cloudflare",
+    "consent-filter-cloudflare-edge-origin",
+    "consent-filter-core",
+    "consent-filter-fastly",
+    "consent-filter-nginx",
+]
+# Plain `cargo build` / `cargo test` covers the crates that compile natively.
+# The fastly/cloudflare crates only build for their wasm targets, via their
+# own CLIs (`fastly compute build`, `worker-build`).
+default-members = [
+    "consent-filter-core",
+    "consent-filter-nginx",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = "s"
+lto = true

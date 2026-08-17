@@ -1,0 +1,10 @@
+name = "consent-filter-cloudflare"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-07-11"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[vars]
+# Forward-mode target (x-bench-origin header): tunnel-exposed local origin.
+ORIGIN_URL = "https://consent.gumball.pro"

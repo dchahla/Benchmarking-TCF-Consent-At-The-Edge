@@ -1,0 +1,13 @@
+# local backups of the pre-monorepo nested git histories
+.git-backups/
+
+# build artifacts
+target/
+__pycache__/
+*.pyc
+node_modules/
+
+# benchmark output
+bench/results/
+.wrangler/
+.claude/

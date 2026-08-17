@@ -1,0 +1,18 @@
+name = "consent-filter-cloudflare-edge-origin"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-07-11"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[vars]
+# Forward-mode target (x-bench-origin header): edge-hosted origin (Cloudflare Worker).
+# Used only to build the subrequest URL — the request is routed via the ORIGIN
+# service binding below, because a plain fetch() to another workers.dev host on
+# the same zone never reaches the target Worker (Cloudflare serves the zone
+# "origin" instead, which for workers.dev is a placeholder 404).
+ORIGIN_URL = "https://consent-filter-cloudflare-origin.consent-filter-cloudflare.workers.dev"
+
+[[services]]
+binding = "ORIGIN"
+service = "consent-filter-cloudflare-origin"

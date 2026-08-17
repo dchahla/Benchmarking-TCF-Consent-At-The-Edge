@@ -1,0 +1,13 @@
+[package]
+name = "consent-filter-cloudflare"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+base64 = "0.22"
+# Exact pin: workers-rs has a history of breaking API churn between minors.
+# Bump deliberately (re-pin) rather than via `cargo update`.
+worker = "=0.8.5"

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Real Nginx + Kong ngx_wasm_module (Wasmtime) executing consent_filter.wasm.
+  # Host networking: listens on 3132, proxies to the origin echo server on 3131.
+  # Build the wasm first:
+  #   cargo build --release --target wasm32-unknown-unknown -p consent-filter-nginx
+  local-nginx-wasm:
+    build: ./local-nginx
+    network_mode: host
+    volumes:
+      - ./implementations/rust/target/wasm32-unknown-unknown/release/consent_filter.wasm:/wasm/consent_filter.wasm:ro
+
+
+  # Functional-logic reference server (Python mirror of the consent rules).
+  # NOT a performance baseline — real WASM benchmarking uses the
+  # local-nginx-wasm service (Kong ngx_wasm_module), added in Phase 1.
+  consent-test-server:
+    image: docker.io/library/python:3.11-slim
+    working_dir: /app
+    command: python3 test_server.py
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./reference/consent-test-server.py:/app/test_server.py
+    networks:
+      - consent-net
+
+networks:
+  consent-net:
+    driver: bridge

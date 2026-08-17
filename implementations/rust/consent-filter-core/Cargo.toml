@@ -1,0 +1,7 @@
+[package]
+name = "consent-filter-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+base64 = "0.22"

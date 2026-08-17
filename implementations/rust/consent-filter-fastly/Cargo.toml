@@ -1,0 +1,10 @@
+[package]
+name = "consent-filter-fastly"
+# Literal (not workspace-inherited) fields: the Fastly CLI's own TOML parser
+# cannot read `key.workspace = true` inheritance syntax.
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.22"
+fastly = "0.13"

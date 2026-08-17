@@ -1,0 +1,18 @@
+# Fastly Compute package manifest.
+# https://www.fastly.com/documentation/reference/compute/fastly-toml/
+manifest_version = 3
+name = "consent-filter-fastly"
+description = "IAB TCF v2 consent filter — Rust benchmark implementation"
+authors = ["dchahla@gmail.com"]
+language = "rust"
+
+# Backend for forward mode (x-bench-origin header): the tunnel-exposed local
+# echo server (gumball tunnel -> localhost:3131).
+[setup.backends.origin]
+description = "Tunnel-exposed local origin echo server"
+address = "consent.gumball.pro"
+port = 443
+
+# `fastly compute serve` local testing: forward mode hits the origin directly.
+[local_server.backends.origin]
+url = "http://127.0.0.1:3131"

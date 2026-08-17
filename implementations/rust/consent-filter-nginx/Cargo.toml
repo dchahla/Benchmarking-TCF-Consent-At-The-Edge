@@ -1,0 +1,14 @@
+[package]
+name = "consent-filter-nginx"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+# Keep the artifact name stable: builds to consent_filter.wasm
+name = "consent_filter"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+base64 = "0.22"
+proxy-wasm = "0.2"
+log = "0.4"

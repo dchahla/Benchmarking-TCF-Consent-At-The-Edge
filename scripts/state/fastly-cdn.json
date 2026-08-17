@@ -1,0 +1,8 @@
+{
+  "service_id": "fAv3amriQZbyKEFjH7ytQ5",
+  "service_name": "consent-cdn",
+  "domain": "consent-cdn-dchahla.global.ssl.fastly.net",
+  "url": "https://consent-cdn-dchahla.global.ssl.fastly.net",
+  "backend": "consent.gumball.pro:443",
+  "updated_at": "2026-07-11T18:30:00Z"
+}

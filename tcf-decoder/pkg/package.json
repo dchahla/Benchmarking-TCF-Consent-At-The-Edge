@@ -1,0 +1,15 @@
+{
+  "name": "tcf-decoder",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "tcf_decoder_bg.wasm",
+    "tcf_decoder.js",
+    "tcf_decoder.d.ts"
+  ],
+  "main": "tcf_decoder.js",
+  "types": "tcf_decoder.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
