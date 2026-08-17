@@ -20,7 +20,7 @@ The benchmark captures:
 - Within-run tail spread (p99 − p50, is a slow request rare or common)
 - Local CPU/memory cost (Nginx only)
 
-See `walk-latest.md` for the full analysis and findings.
+See [blog post](https://chahla.net/posts?pid=1786977825371/) for the full analysis and findings.
 
 ## Run the benchmarks
 
